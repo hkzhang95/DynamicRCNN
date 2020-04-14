@@ -6,7 +6,7 @@ This project is based on [maskrcnn-benchmark](https://github.com/facebookresearc
 
 ## Abstract
 
-Although two-stage object detectors have continuously advanced the state-of-the-art performance in recent years, the training process itself is far from crystal. In this work, we first point out the inconsistency problem between the fixed network settings and the dynamic training procedure, which greatly affects the performance. For example, the fixed label assignment strategy and regression loss function cannot fit the distribution change of proposals and are harmful to training high quality detectors. Then, we propose *Dynamic R-CNN* to adjust the label assignment criteria (IoU threshold) and the shape of regression loss function (parameters of SmoothL1 Loss) automatically based on the statistics of proposals during training. This dynamic design makes better use of the training samples and pushes the detector to fit more high quality samples. Specifically, our method improves upon ResNet-101-FPN baseline with 2.0% AP and 6.1% AP90 on the MS COCO dataset with no extra overhead. For more details, please refer to our [paper](arxiv).
+Although two-stage object detectors have continuously advanced the state-of-the-art performance in recent years, the training process itself is far from crystal. In this work, we first point out the inconsistency problem between the fixed network settings and the dynamic training procedure, which greatly affects the performance. For example, the fixed label assignment strategy and regression loss function cannot fit the distribution change of proposals and are harmful to training high quality detectors. Then, we propose *Dynamic R-CNN* to adjust the label assignment criteria (IoU threshold) and the shape of regression loss function (parameters of SmoothL1 Loss) automatically based on the statistics of proposals during training. This dynamic design makes better use of the training samples and pushes the detector to fit more high quality samples. Specifically, our method improves upon ResNet-50-FPN baseline with 1.9% AP and 5.5% AP90 on the MS COCO dataset with no extra overhead. For more details, please refer to our [paper](https://arxiv.org/abs/2004.06002v1).
 
 ## Models
 
@@ -22,7 +22,7 @@ Dynamic_RCNN_r101_dcnv2_fpn_2x | Yes | 46.7 | 46.9 | [Google Drive](https://driv
 1. `1x` and `2x` mean the model is trained for 90K and 180K iterations, respectively.
 2. For `Multi-scale training`, the shorter side of images is randomly chosen from (400, 600, 800, 1000, 1200), and the longer side is 1400. We also extend the training time by `1.5x` under this setting.
 3. `dcnv2` denotes deformable convolutional networks v2. We follow the same setting as [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark). Note that the result of this version is slightly lower than that of [mmdetection](https://github.com/open-mmlab/mmdetection).
-4. All results in the table are obtained using a single model with no extra testing tricks. Additionally, adopting multi-scale testing on model `Dynamic_RCNN_r101_dcnv2_fpn_2x` achieves 49.2% in AP on COCO test-dev. Please set `TEST.BBOX_AUG.ENABLED = True` in the `config.py` to enable multi-scale testing. Here we use five scales with shorter sides (800, 1000, 1200, 1400, 1600) and the longer side is 2000 pixels.
+4. All results in the table are obtained using a single model with no extra testing tricks. Additionally, adopting multi-scale testing on model `Dynamic_RCNN_r101_dcnv2_fpn_2x` achieves 49.2% in AP on COCO test-dev. Please set `TEST.BBOX_AUG.ENABLED = True` in the `config.py` to enable multi-scale testing. Here we use five scales with shorter sides (800, 1000, 1200, 1400, 1600) and the longer side is 2000 pixels. Note that Dynamic R-CNN*(50.1% AP) in Table 9 is implemented using mmdetection, we will release that model later.
 5. If you want to test the model provided by us, please refer to [Testing](#Testing).
 
 ## Getting started
@@ -132,6 +132,7 @@ If you want to test our provided model, just download the model, move it to the 
 # example for Dynamic_RCNN_r50_fpn_1x
 cd models/zhanghongkai/dynamic_rcnn/coco/dynamic_rcnn_r50_fpn_1x
 python config.py -log
+realpath log | xargs mkdir
 mkdir -p log/checkpoints
 mv path/to/the/model log/checkpoints
 realpath log/checkpoints/dynamic_rcnn_r50_fpn_1x_test_model_0090000.pth last_checkpoint | xargs ln -s
@@ -156,7 +157,7 @@ Please consider citing our paper in your publications if it helps your research:
 @article{DynamicRCNN,
     author = {Hongkai Zhang, Hong Chang, Bingpeng Ma, Naiyan Wang and Xilin Chen},
     title = {Dynamic {R-CNN}: Towards High Quality Object Detection via Dynamic Training},
-    journal = {arXiv preprint arXiv:xxxx.xxxxx},
+    journal = {arXiv preprint arXiv:2004.06002},
     year = {2020}
 }
 ```
