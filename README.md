@@ -155,7 +155,7 @@ Please consider citing our paper in your publications if it helps your research:
 
 ```
 @article{DynamicRCNN,
-    author = {Hongkai Zhang, Hong Chang, Bingpeng Ma, Naiyan Wang and Xilin Chen},
+    author = {Hongkai Zhang and Hong Chang and Bingpeng Ma and Naiyan Wang and Xilin Chen},
     title = {Dynamic {R-CNN}: Towards High Quality Object Detection via Dynamic Training},
     journal = {arXiv preprint arXiv:2004.06002},
     year = {2020}
