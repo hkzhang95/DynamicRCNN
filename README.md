@@ -2,7 +2,9 @@
 
 By [Hongkai Zhang](https://hkzhang95.github.io/), [Hong Chang](https://scholar.google.com/citations?user=LX6MnNsAAAAJ&hl=en), [Bingpeng Ma](http://people.ucas.edu.cn/~bpma), [Naiyan Wang](https://winsty.net/), [Xilin Chen](http://vipl.ict.ac.cn/en/people/~xlchen).
 
-This project is based on [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark). We also provide an implementation based on MMDetection at this [link](https://github.com/open-mmlab/mmdetection/tree/master/configs/dynamic_rcnn).
+This project is based on [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark).
+
+[2020.7] Dynamic R-CNN is officially included in [MMDetection V2.2](https://github.com/open-mmlab/mmdetection/tree/master/configs/dynamic_rcnn), many thanks to [@xvjiarui](https://github.com/xvjiarui) and [@hellock](https://github.com/hellock) for migrating the code.
 
 ## Abstract
 
