@@ -18,10 +18,10 @@ Dynamic_RCNN_r50_fpn_1x | No | 38.9 | 39.1 | [Google Drive](https://drive.google
 Dynamic_RCNN_r50_fpn_2x | No | 39.9 | 39.9 | [Google Drive](https://drive.google.com/open?id=1zHXIshC7qbK_Jn9BiribtaJ1pe_NZ6WL)
 Dynamic_RCNN_r101_fpn_1x | No | 41.0 | 41.2 | [Google Drive](https://drive.google.com/open?id=1ARhu8Eynnbj1R4Oh-_mw1UZ4WsLg9kQK)
 Dynamic_RCNN_r101_fpn_2x | No | 41.8 | 42.0 | [Google Drive](https://drive.google.com/open?id=16eS1W39hnYtwsOLoQ5xTrYxAvlB689Xi)
-Dynamic_RCNN_r101_fpn_2x | Yes | 44.4 | 44.7 | [Google Drive](https://drive.google.com/open?id=19NxzuMBQf2H7MAzflhg6_TgkPgz4AvyC)
-Dynamic_RCNN_r101_dcnv2_fpn_2x | Yes | 46.7 | 46.9 | [Google Drive](https://drive.google.com/open?id=1VGFsaPZRrQ4dSV8APDTaueCEzu4dKSVM)
+Dynamic_RCNN_r101_fpn_3x | Yes | 44.4 | 44.7 | [Google Drive](https://drive.google.com/open?id=19NxzuMBQf2H7MAzflhg6_TgkPgz4AvyC)
+Dynamic_RCNN_r101_dcnv2_fpn_3x | Yes | 46.7 | 46.9 | [Google Drive](https://drive.google.com/open?id=1VGFsaPZRrQ4dSV8APDTaueCEzu4dKSVM)
 
-1. `1x` and `2x` mean the model is trained for 90K and 180K iterations, respectively.
+1. `1x`, `2x` and `3x` mean the model is trained for 90K, 180K and 270K iterations, respectively.
 2. For `Multi-scale training`, the shorter side of images is randomly chosen from (400, 600, 800, 1000, 1200), and the longer side is 1400. We also extend the training time by `1.5x` under this setting.
 3. `dcnv2` denotes deformable convolutional networks v2. We follow the same setting as [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark). Note that the result of this version is slightly lower than that of [mmdetection](https://github.com/open-mmlab/mmdetection).
 4. All results in the table are obtained using a single model with no extra testing tricks. Additionally, adopting multi-scale testing on model `Dynamic_RCNN_r101_dcnv2_fpn_2x` achieves 49.2% in AP on COCO test-dev. Please set `TEST.BBOX_AUG.ENABLED = True` in the `config.py` to enable multi-scale testing. Here we use five scales with shorter sides (800, 1000, 1200, 1400, 1600) and the longer side is 2000 pixels. Note that Dynamic R-CNN*(50.1% AP) in Table 9 is implemented using MMDetection v1.1, please refer to this [link](https://github.com/hkzhang95/DynamicRCNN-mmdetV1.1/blob/master/configs/dynamic_rcnn).
