@@ -156,10 +156,10 @@ Then you can follow the regular testing and evaluation process.
 Please consider citing our paper in your publications if it helps your research:
 
 ```
-@article{DynamicRCNN,
-    author = {Hongkai Zhang and Hong Chang and Bingpeng Ma and Naiyan Wang and Xilin Chen},
+@inproceedings{DynamicRCNN,
+    author = {Zhang, Hongkai and Chang, Hong and Ma, Bingpeng and Wang, Naiyan and Chen, Xilin},
     title = {Dynamic {R-CNN}: Towards High Quality Object Detection via Dynamic Training},
-    journal = {arXiv preprint arXiv:2004.06002},
+    booktitle = {ECCV},
     year = {2020}
 }
 ```
